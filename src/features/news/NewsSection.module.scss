@@ -1,0 +1,131 @@
+.e-news-section {
+  display: block;
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+
+  &__title {
+    font-family: "Roboto",sans-serif;
+    font-size: 26px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 30px;
+    letter-spacing: normal;
+    color: #0b2039;
+    margin-top: 17px;
+    margin-bottom: 18px;
+    height: 30px;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+  }
+
+  &__more-link {
+    color: #337ab7;
+    text-decoration: none;
+  }
+
+  &__more-label {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 7px;
+    height: 15px;
+    font-family: "Roboto",sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 15px;
+    letter-spacing: normal;
+    color: #1f7feb;
+    cursor: pointer;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    transition: .4s all ease;
+  }
+
+  &__main-news-item {
+    width: 100%;
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+    cursor: pointer;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    transition: .4s all ease;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  &__main-news-item-wrap {
+    border-radius: 5px;
+    background-color: #f4f8fb;
+    padding: 20px;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    transition: .4s all ease;
+
+
+    &:hover {
+      background-color: #e1ecf4;;
+    }
+  }
+
+  &__main-news-date {
+    font-family: "Roboto",sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0b2039;
+    padding-right: 18px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+  }
+
+  &__main-news-title {
+    font-family: "Roboto",sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+    color: #1f7feb;
+    padding-left: 83px;
+
+    @media only screen and (max-width: 991px) {
+      padding-left: 0;
+      padding-top: 20px;
+    }
+  }
+
+  &__main-news-reference {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}

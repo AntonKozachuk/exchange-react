@@ -1,0 +1,52 @@
+.e-header-profile {
+  color: #fff;
+  display: flex;
+  height: 40px;
+  flex-direction: row;
+  z-index: 1;
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.4;
+  position: relative;
+  width: 50px;
+
+  &__pid {
+    position: absolute;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    transition: .4s all ease;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-color: transparent;
+    background-image: url(ic-profile.svg);
+
+    @media only screen and (max-width: 991px) {
+      line-height: 15px;
+      font-size: 15px;
+    }
+
+    @media only screen and (max-width: 991px) and (max-width: 767px) {
+      font-size: 12px;
+    }
+
+    &--active {
+      opacity: 0;
+      background-image: url(ic-profile-active.svg);
+    }
+  }
+}

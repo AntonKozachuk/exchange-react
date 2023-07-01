@@ -1,0 +1,124 @@
+.e-page-template {
+  margin: 0 auto 30px auto;
+
+  &__container {
+    @media only screen and (min-width: 1200px) {
+      width: 1140px;
+    }
+
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      width: 972px;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      width: 748px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  &__header-container {
+    position: relative;
+    min-height: 90px;
+    height: auto;
+    display: flex;
+    z-index: 5;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      width: 100%;
+      padding: 0;
+    }
+
+    @media only screen and (max-width: 767px) {
+      height: auto;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__header-content {
+    @media only screen and (min-width: 1200px) {
+      width: 1140px;
+    }
+
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      width: 972px;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      width: 748px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+    }
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0 auto;
+  }
+
+  &__header-banners {
+    //height: 114px;
+    //
+    //@media only screen and (max-width: 767px) {
+    //  height: 171px;
+    //}
+    //
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: flex-start;
+    //align-items: stretch;
+    //width: 100%;
+    //padding: 20px 0 30px;
+    padding: 20px 0 25px;
+
+    @media only screen and (max-width: 1199px) {
+      //padding-bottom: 20px;
+      padding-bottom: 15px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
+  &__page-content {
+    position: relative;
+    background: #fff;
+    background: linear-gradient(180deg,#fff 0,#fff 65px,#f4f8fb 65px,#f4f8fb 100%);
+    z-index: 3;
+  }
+
+  &__content-section {
+    position: relative;
+    background: #fff;
+    background: linear-gradient(180deg,#fff 0,#fff 65px,#f4f8fb 65px,#f4f8fb 100%);
+    z-index: 3;
+  }
+
+  &__content-container {
+    margin: 0 auto 30px auto;
+
+    @media only screen and (min-width: 1200px) {
+      width: 1140px;
+    }
+
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      width: 972px;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      width: 748px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      margin: 0 0 30px 0;
+      width: 100%;
+    }
+  }
+}

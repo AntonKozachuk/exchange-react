@@ -1,0 +1,120 @@
+.e-header {
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-content: stretch;
+  order: 1;
+
+  @media only screen and (max-width: 767px) {
+    order: 2;
+  }
+
+  &__logo-container {
+    margin-top: 24px;
+    width: 150px;
+    height: 45px;
+
+    @media only screen and (max-width: 767px)  {
+      margin: 13px 0 0 9px;
+      width: 130px;
+      height: 35.4px;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url(logo.svg);
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 5px;
+
+    @media only screen and (max-width: 767px) {
+      align-items: flex-end;
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+
+
+    > * {
+      margin-right: 20px;
+
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+       margin-right: 10px;
+      }
+
+      @media only screen and (max-width: 767px) {
+        margin-right: 0;
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      //gap: 10px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      //custom
+      order: 1;
+    }
+  }
+
+  &__buttons-portal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  &--burger-modifier {
+    margin-left: 20px;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      margin-left: 10px;
+    }
+
+    @media only screen and (max-width: 767px)  {
+      margin-left: 0;
+    }
+
+    @media only screen and (max-width: 767px)  {
+      //custom
+      order: 3;
+    }
+  }
+
+  &--button-support {
+    @media only screen and (max-width: 767px) {
+      margin: 9px 10px 0 0;
+
+    }
+
+    @media only screen and (max-width: 767px) {
+      //custom
+      order: 2;
+    }
+  }
+}

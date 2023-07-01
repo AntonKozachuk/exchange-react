@@ -1,0 +1,69 @@
+.e-banner-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 15px;
+  border-radius: 5px;
+  min-width: 367px;
+  width: 100%;
+  min-height: 118px;
+  position: relative;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-transition: .4s all ease;
+  -moz-transition: .4s all ease;
+  -ms-transition: .4s all ease;
+  -o-transition: .4s all ease;
+  -icab-transition: .4s all ease;
+  -khtml-transition: .4s all ease;
+  transition: .4s all ease;
+  background: linear-gradient(256.25deg, #BE6EDA -26.89%, #4096DE 100%),
+              linear-gradient(171.31deg, #71B95E 6.63%, #297BBF 253.19%);
+
+  &--index-0 {
+    background: linear-gradient(256.25deg, #BE6EDA -26.89%, #4096DE 100%),
+                linear-gradient(171.31deg, #71B95E 6.63%, #297BBF 253.19%);
+  }
+
+  &--index-1 {
+    background: linear-gradient(180deg, #BE6EDA 0%, #4096DE 212.71%),
+                linear-gradient(102.69deg, #71B95E 0%, #297BBF 100%);
+  }
+
+  &--index-2 {
+    background: linear-gradient(103.83deg, #BE6EDA -27.33%, #4096DE 99.92%),
+                linear-gradient(255.34deg, #84DA6E 0%, #4096DE 93.54%);
+  }
+
+  &__img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 190px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right center;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    max-width: 260px;
+    text-align: left;
+  }
+
+  &__text {
+    text-align: left;
+    max-width: 260px;
+  }
+}

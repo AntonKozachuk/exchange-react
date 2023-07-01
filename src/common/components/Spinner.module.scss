@@ -1,0 +1,56 @@
+@keyframes sk-wave-stretch-delay {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4)
+  }
+
+  20% {
+    transform: scaleY(1)
+  }
+}
+
+.e-spinner {
+  width: 3em;
+  height: 2em;
+  margin: auto;
+  text-align: center;
+  font-size: 1em;
+
+  &__rect {
+    background-color: #fff;
+    height: 100%;
+    width: .5em;
+    display: inline-block;
+    animation: sk-wave-stretch-delay 1.2s infinite ease-in-out;
+    animation-delay: 0s;
+
+    &--grey {
+      background-color: #8c9caa;
+    }
+
+    &--blue {
+      background-color: #1f7feb;
+    }
+
+    &--index-1 {
+      animation-delay: -1.2s;
+    }
+
+    &--index-2 {
+      animation-delay: -1.1s;
+    }
+
+    &--index-3 {
+      animation-delay: -1s;
+    }
+
+    &--index-4 {
+      animation-delay: -.9s;
+    }
+
+    &--index-5 {
+      animation-delay: -.8s;
+    }
+  }
+}

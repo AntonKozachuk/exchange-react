@@ -1,0 +1,40 @@
+.e-message {
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%) translateX(-10px);
+  padding-right: 10px;
+  transition: .4s all ease;
+
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    position: relative;
+    transform: none;
+    top: auto;
+    padding: 0;
+    display: block;
+    margin-top: 10px;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50px;
+    border-radius: 3px;
+    text-align: left;
+    padding: 7px 10px 9px 10px;
+
+    &--danger {
+      box-shadow: 0 2px 8px 0 rgba(255,54,54,0.42);
+      background-color: #ff3636;
+      color: #ffffff;
+    }
+
+    &--info {
+      box-shadow: 0 2px 8px 0 rgba(31,127,235,0.42);
+      background-color: #1f7feb;
+      color: #ffffff;
+    }
+  }
+}

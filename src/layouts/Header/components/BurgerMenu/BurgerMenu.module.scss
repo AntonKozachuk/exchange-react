@@ -1,0 +1,118 @@
+.e-burger-menu {
+  $this: &;
+
+  --e-burger-button-color: var(--e-primary-button-color);
+  --e-burger-button-hover-color: var(--e-primary-button-hover-color);
+
+  position: relative;
+
+  &--is-opened {
+    #{$this}__button {
+      background-color: var(--e-burger-button-color);
+      background-image: url(cross.svg);
+      background-size: 16px;
+
+      &:hover {
+        background-color: var(--e-burger-button-hover-color);
+        background-image: url(cross.svg);
+      }
+    }
+
+    #{$this}__menu {
+      max-height: 500px;
+    }
+  }
+
+  &__button {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: var(--e-burger-button-color);
+    cursor: pointer;
+    transition: .4s all ease;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    background-image: url(burger.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+
+    &:hover {
+      background-color: var(--e-burger-button-hover-color);
+      background-image: url(burger-hover.svg);
+    }
+  }
+
+  &__menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: .4s all ease;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    border-radius: 5px;
+    background-color: var(--e-burger-button-color);
+  }
+
+  &__menu-body {
+    min-width: 220px;
+    padding: 20px;
+  }
+
+  &__menu-item {
+    font-family: "Roboto",sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #d9e0e8;
+    margin-bottom: 17px;
+    transition: .4s all ease;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    cursor: pointer;
+    height: 18px;
+
+    &:hover {
+      #{$this}__menu-item-link {
+        color: #fff;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__menu-item-link {
+    color: #d9e0e8;
+    text-decoration: none;
+    text-underline: none;
+    display: inherit;
+    height: 18px;
+  }
+
+  &__menu-text {
+    height: 18px;
+
+    &--is-active {
+      border-bottom: 4px solid #f9c34c;
+    }
+  }
+}

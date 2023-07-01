@@ -1,0 +1,117 @@
+.e-switcher {
+  $this: &;
+
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 3px;
+  margin: 0 20px 0;
+  height: 0;
+  opacity: 0;
+  transition: .4s all ease;
+
+
+  &--inline {
+    display: inline-flex;
+    height: 23px;
+    margin: 0;
+  }
+
+  @media only screen and (max-width: 767px) {
+    width: auto;
+    opacity: 1;
+
+    &:not(#{$this}--inline) {
+      height: 20px;
+      margin: 0 20px 20px;
+    }
+  }
+
+  @media only screen and (min-width: 768px)  {
+    width: auto !important;
+    opacity: 1 !important;
+
+    &:not(#{$this}--inline) {
+      height: 20px !important;
+      margin: 0 20px 20px !important;
+    }
+  }
+
+  &__option {
+    line-height: 20px;
+    padding: 0 15px;
+    border: solid 1px #d9e0e8;
+    border-right: none;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: "Roboto",sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #0b2039;
+    cursor: pointer;
+
+
+    &--size-small {
+      padding: 0 7px;
+    }
+
+    &--size-medium {
+      padding: 0 15px;
+    }
+
+    &--appearance-default {
+      transition: .4s all ease;
+      font-weight: bold;
+    }
+
+    &--appearance-simple {
+      transition: none;
+      font-weight: normal;
+      color: #1f7feb;
+      line-height: 21px;
+    }
+
+    &:not(&--active):hover {
+      color: #ffffff;
+      background-color: #1c508f;
+      border: solid 1px #1c508f;
+      border-right-color: rgb(28, 80, 143);
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-right: none;
+    }
+
+    &:first-child {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border-right: solid 1px #d9e0e8;
+
+      &:hover {
+        border-right: solid 1px #1c508f;
+      }
+    }
+
+    &--active {
+      border: solid 1px #0b2039;
+      border-right-color: rgb(11, 32, 57);
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-right: none;
+      background-color: #0b2039;
+      color: #ffffff;
+      cursor: default;
+    }
+  }
+}

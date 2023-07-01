@@ -1,0 +1,41 @@
+.e-main-statistic {
+  position: relative;
+  padding: 16px 18px;
+
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    padding: 19px 10px;
+  }
+
+  &__title {
+    height: 30px;
+    font-family: "Roboto",sans-serif;
+    font-size: 26px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 30px;
+    letter-spacing: normal;
+    color: #0b2039;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      height: 24px;
+      font-size: 21px;
+      line-height: 24px;
+    }
+  }
+
+  &__stat-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    box-sizing: border-box;
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      flex-wrap: nowrap;
+      flex-direction: column;
+    }
+  }
+}

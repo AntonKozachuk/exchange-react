@@ -1,0 +1,41 @@
+@keyframes rotatingBack {
+  from {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
+
+  to {
+    -ms-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0)
+  }
+}
+
+.e-refresh-circle {
+  position: relative;
+
+  &__progress-value {
+    transform: rotate(-90deg);
+    transform-origin: center;
+    fill: none;
+    transition: .4s all ease;
+    stroke-linecap: round;
+
+    animation: rotatingBack 20s linear infinite;
+  }
+
+  &__refresh-value {
+    transform-origin: center;
+    fill: none;
+    transition: .4s all ease;
+    stroke: #8c9caa;
+    stroke-linecap: round;
+    stroke-dasharray: 5;
+    opacity: 0;
+  }
+}

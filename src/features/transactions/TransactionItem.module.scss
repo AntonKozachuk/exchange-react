@@ -1,0 +1,76 @@
+.e-transaction-item {
+  position: relative;
+  width: 254px;
+  height: 73px;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.13);
+  background-color: #ffffff;
+  float: left;
+  margin-right: 18px;
+
+  @media only screen and (min-width: 768px) and (max-width: 1199px) {
+    width: 214px;
+    margin-right: 10px;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1199px) and (min-width: 768px) and (max-width: 991px) {
+    margin-right: 20px;
+  }
+
+  &__wrap {
+    overflow: hidden;
+  }
+
+  &__exchange-info {
+    font-family: "Roboto",sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    color: #0b2039;
+    padding-top: 11px;
+
+    &--source {
+      float: left;
+      padding-left: 14px;
+    }
+
+    &--target {
+      position: absolute;
+      left: 144px;
+
+      @media only screen and (min-width: 768px) and (max-width: 1199px)  {
+        left: 122px;
+      }
+    }
+  }
+
+  &__divider {
+    position: absolute;
+    left: 50%;
+    top: 17px;
+    margin-left: -5px;
+    width: 10px;
+    height: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(Shape.svg);
+  }
+
+  &__expire-minutes {
+    font-family: "Roboto",sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.36;
+    letter-spacing: normal;
+    color: #8c9caa;
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+  }
+}
