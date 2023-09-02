@@ -65,7 +65,7 @@
   }
 
   &__extension {
-    position: absolute;
+    // position: absolute;
     left: 540px;
     padding: 0 19px;
     min-height: 50px;
@@ -75,6 +75,12 @@
     justify-content: center;
     width: 342px;
     height: 50px;
+
+    &__pay-info-text {
+      width: 195px;
+      bottom: 0;
+      margin: 0;
+    }
 
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       width: 272px;
@@ -101,6 +107,8 @@
   }
 
   &__extension-wrapper {
+    position: absolute;
+    
     @media only screen and (max-width: 767px) {
       display: flex;
       flex-direction: row;
@@ -108,6 +116,17 @@
       justify-content: space-between;
       align-items: stretch;
       align-content: stretch;
+    }
+
+    & P {
+      font-family: "Roboto",sans-serif;
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.2;
+      letter-spacing: normal;
+      color: #0b2039;
     }
   }
 
@@ -150,6 +169,7 @@
     justify-content: center;
     width: 342px;
     height: 50px;
+    font-size: 14px;
 
     z-index: 1;
     transition: .4s all ease;

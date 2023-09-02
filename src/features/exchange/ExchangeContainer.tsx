@@ -10,6 +10,7 @@ import { ExchangeLayout } from './layouts/ExchangeLayout';
 import layoutStyles from './layouts/ExchangeLayout.module.scss'
 import { StartTradeBanner } from './components/StartTradeBanner';
 import { TransactionSetup } from './components/TransactionSetup';
+import { TransactionPayment } from './components/TransactionPayment';
 import { NewsContainer } from '../news/NewsContainer';
 import { TransactionsContainer } from '../transactions/TransactionsContainer';
 import { StatisticContainer } from '../statistic/StatisticContainer';
@@ -20,6 +21,7 @@ import { FilterType } from './constants';
 import { getFilterOptions } from './helpers/get-filter-options';
 import { useTransactionSteps } from './hooks/use-transaction-steps';
 import { SwitcherOption } from '../../common/components/Switcher';
+import { TransactionDone } from './components/TransactionDone';
 
 type SourcePaymentsContainerProps = {
   className?: string;
@@ -89,6 +91,21 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
     setAreCompactDirections(false)
   }
 
+  const [sourceAmount, setSourceAmount] = useState("");
+  const [targetAmount, setTargetAmount] = useState("");
+
+  // Helper function to go to the next step
+  const goToNextStep = (values: any, targetAmount: string) => {
+    const currentStepIndex = steps.findIndex((step) => step.id === activeStepId);
+    if (currentStepIndex < steps.length - 1) {
+      setActiveStepId(steps[currentStepIndex + 1].id);
+    }
+
+    // Store the sourceAmount and targetAmount in state or do whatever you need with them
+    setSourceAmount(values.sourceAmount);
+    setTargetAmount(targetAmount);
+  };
+
   useEffect(() => {
     if (sourceSystem === null && paymentSystems.length && isLargeScreen) {
       setSourceSystem(paymentSystems[0]);
@@ -97,15 +114,18 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
 
   if (!paymentSystems.length) return null;
 
-  const sideBaer = !transactionPair.length ? (
-      <div>
-        <StartTradeBanner />
-        <NewsContainer />
-        <TransactionsContainer />
-        <StatisticContainer />
-      </div>
-    ) : (
-      <div onClick={onFormClick}>
+  const sideBar = !transactionPair.length ? (
+    <div>
+      <StartTradeBanner />
+      <NewsContainer />
+      <TransactionsContainer />
+      <StatisticContainer />
+    </div>
+  ) : (
+    <div onClick={onFormClick}>
+      {/* Conditionally render the appropriate step based on activeStepId */}
+      {activeStepId === steps[0].id && (
+        // Step 1: Data Entry
         <TransactionSetup
           isShortView={!areCompactDirections}
           onStepBack={onStepBack}
@@ -113,15 +133,48 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
           activeStepId={activeStepId}
           sourceSystem={transactionPair[0]}
           targetSystem={transactionPair[1]}
+          goToNextStep={goToNextStep}
+          setSourceAmount={setSourceAmount}
+          setTargetAmount={setTargetAmount}
         />
-      </div>
-    );
+      )}
+      {activeStepId === steps[1].id && (
+        // Step 2: Payment
+        <TransactionPayment
+          isShortView={!areCompactDirections}
+          onStepBack={onStepBack}
+          steps={steps}
+          activeStepId={activeStepId}
+          sourceSystem={transactionPair[0]}
+          targetSystem={transactionPair[1]}
+          goToNextStep={goToNextStep}
+          sourceAmount={sourceAmount} // Pass the sourceAmount
+            targetAmount={targetAmount} // Pass the targetAmount
+          // Add necessary props for the PaymentStep component
+        />
+      )}
+      {activeStepId === steps[2].id && (
+        // Step 3: Done
+        <TransactionDone
+          isShortView={!areCompactDirections}
+          onStepBack={onStepBack}
+          steps={steps}
+          activeStepId={activeStepId}
+          sourceSystem={transactionPair[0]}
+          targetSystem={transactionPair[1]}
+          sourceAmount={sourceAmount}
+          targetAmount={targetAmount}
+          // Add necessary props for the DoneStep component
+        />
+      )}
+    </div>
+  );
 
   return (
     <ExchangeLayout
       areCompactDirections={areCompactDirections}
       isTargetSelected={Boolean(targetSystem)}
-      sideBar={sideBaer}
+      sideBar={sideBar}
     >
       <ExchangeShortTitle
         title={'Нажмите для <br> выбора валют'}

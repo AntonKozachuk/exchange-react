@@ -14,8 +14,9 @@ export function ExchangeSteps(props: ExchangeStepsProps) {
   const { onStepBack, isShortView, steps, activeStepId } = props;
 
   return (
-    <div className={classNames(styles['e-exchange-steps'], {
-        [styles['e-exchange-steps--short-view']]: isShortView
+    <div
+      className={classNames(styles['e-exchange-steps'], {
+        [styles['e-exchange-steps--short-view']]: isShortView,
       })}
     >
       <div className={styles['e-exchange-steps__steps-wrapper']}>
@@ -30,7 +31,7 @@ export function ExchangeSteps(props: ExchangeStepsProps) {
             <div className={styles['e-exchange-steps__step']}>
               <div
                 className={classNames(styles['e-exchange-steps__step-number'], {
-                  [styles['e-exchange-steps__step-number--active']]: item.id === activeStepId
+                  [styles['e-exchange-steps__step-number--active']]: item.id === activeStepId || index < steps.findIndex((step) => step.id === activeStepId),
                 })}
               >
                 {item.number}
@@ -38,7 +39,7 @@ export function ExchangeSteps(props: ExchangeStepsProps) {
 
               <div
                 className={classNames(styles['e-exchange-steps__step-text'], {
-                  [styles['e-exchange-steps__step-text--active']]: item.id === activeStepId
+                  [styles['e-exchange-steps__step-text--active']]: item.id === activeStepId || index < steps.findIndex((step) => step.id === activeStepId),
                 })}
               >
                 {item.text}
@@ -50,3 +51,7 @@ export function ExchangeSteps(props: ExchangeStepsProps) {
     </div>
   );
 }
+
+
+
+

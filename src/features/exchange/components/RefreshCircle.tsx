@@ -22,7 +22,7 @@ export function RefreshCircle(props: RefreshCircleProps) {
   const progressOffset = progress && strokeDasharray / 100 * progress;
 
   return (
-    <svg className={styles['e-refresh-circle']} width={size} height={size} viewBox="0 0 30 30">
+    <svg className={styles['e-refresh-circle']} width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
       <circle
         className={styles['e-refresh-circle__progress-value']}
         cx={halfOfCircle}

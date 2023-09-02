@@ -5,33 +5,38 @@ import { RefreshCircle } from './RefreshCircle';
 type ProgressSpinnerProps = {
   color?: string;
   value: string | number;
-  size?: number;
+  size: number;
   progress?: number;
 }
 export function ProgressSpinner(props: ProgressSpinnerProps) {
   const {
-    color = 'rgb(140, 156, 170)',
-    size = 30,
-    progress= 0,
-    value
+    color,
+    size,
+    progress = 0,
+    value,
   } = props;
+
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
+
+  const displayValue = typeof value === 'number' && value >= 60 ? formatTime(value) : value;
 
   return (
     <div className={styles['e-progress-spinner']}>
-      <RefreshCircle
-        size={size}
-        stroke={color}
-        progress={progress}
-      />
+      <RefreshCircle size={size} stroke={color} progress={progress} />
       <div
         className={styles['e-progress-spinner__value']}
         style={{
           color,
-          lineHeight: `${size}px`
+          lineHeight: `${size}px`,
+          left: size > 30 ? '115%' : '0',
         }}
       >
-        {value}
+        {displayValue}
       </div>
     </div>
-  )
+  );
 }

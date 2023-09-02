@@ -1,0 +1,81 @@
+.e-transaction-info {
+  border-radius: 10px;
+  box-shadow: 0 10px 30px 0 #d9e0e8;
+  background-color: #ffffff;
+  font-family: "Roboto",sans-serif;
+  position: relative;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.e-transaction-info .ti-currency-block {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 45%;
+  box-sizing: border-box;
+}
+
+.e-transaction-info .ti-target-block {
+  padding-left: 20px;
+}
+
+.e-transaction-info .ti-arrow {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 25px;
+  height: 75px;
+  margin-left: -12.5px;
+  margin-top: -37.5px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(https://netex24.net/dist/img/big-shevron-right.svg);
+}
+
+.e-transaction-info .ti-currency-block .ti-amount {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.04;
+  letter-spacing: normal;
+  color: #0b2039;
+}
+
+
+.e-transaction-info .ti-currency-block .ti-wallet {
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 20px;
+  letter-spacing: normal;
+  color: #0b2039;
+  word-break: break-all;
+  margin-top: 5px;
+}
+
+.e-transaction-info .ti-currency-block .ti-amount img {
+  width: 30px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.e-transaction-info .ti-currency-block .ti-wallet {
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 20px;
+  letter-spacing: normal;
+  color: #0b2039;
+  word-break: break-all;
+  margin-top: 5px;
+}

@@ -1,0 +1,335 @@
+.e-transaction-payment {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: center;
+    width: 536px;
+    margin-left: 120px;
+    transition: .4s all ease;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    margin-top: 23px;
+    margin-bottom: 28px;
+
+    &--title {
+      font-size: 30px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 35px;
+      letter-spacing: normal;
+      color: #0b2039;
+      display: flex;
+      min-height: 35px;
+      justify-content: flex-start;
+      align-items: flex-end;
+      max-width: 320px;
+    }
+
+    &--title-info {
+      font-size: 18px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 25px;
+      letter-spacing: normal;
+      color: #0b2039;
+      display: flex;
+      height: auto;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      & span {
+        padding: 0 5px;
+      }
+    }
+  }
+
+  &-body {
+    display: flex;
+    justify-content: flex-start;
+  
+    &__main {
+      width: 536px;
+      margin-left: 120px;
+      transition: .4s all ease;
+      -webkit-transition: .4s all ease;
+      -moz-transition: .4s all ease;
+      -ms-transition: .4s all ease;
+      -o-transition: .4s all ease;
+      -icab-transition: .4s all ease;
+      -khtml-transition: .4s all ease;
+      font-size: 17px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.47;
+      letter-spacing: normal;
+      color: #0b2039;
+    }
+
+    &__aside {
+      width: 300px;
+      margin-left: 20px;
+      padding-top: 15px;
+
+      &--timer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: "Roboto",sans-serif;
+
+        &--text {
+          font-size: 13px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.38;
+          letter-spacing: normal;
+          color: #0b2039;
+          width: 115px;
+          margin-left: 18px;
+
+          position: absolute;
+          margin-left: 120px;
+          width: 120px;
+          margin-top: 65px;
+        }
+      }
+    }
+  }
+
+  &-back-body {
+    background-color: #f4f8fb;
+    width: 1000px;
+    margin: 28px 0;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+
+    &__main {
+      width: 536px;
+      margin-left: 120px;
+      transition: .4s all ease;
+      -webkit-transition: .4s all ease;
+      -moz-transition: .4s all ease;
+      -ms-transition: .4s all ease;
+      -o-transition: .4s all ease;
+      -icab-transition: .4s all ease;
+      -khtml-transition: .4s all ease;
+    }
+
+    &__aside {
+      width: 300px;
+      margin-left: 20px;
+    }
+  }
+
+
+}
+
+.plate {
+  border-radius: 10px;
+  box-shadow: 0 10px 30px 0 #d9e0e8;
+  background-color: #ffffff;
+  padding: 21px 26px;
+
+  &.transparent {
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  & h3 {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0b2039;
+  }
+
+  & p {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #0b2039;
+    text-align: left;
+  }
+
+  & p.mini {
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+    color: #0b2039;
+    text-align: left;
+  }
+}
+
+.v-cripto-block {
+  display: inline-block;
+  position: relative;
+  border-radius: 5px;
+  background-color: #0b2039;
+  font-size: 28px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  padding: 5px 14px;
+
+  & .v-space {
+    position: relative;
+    display: inline-block;
+    width: 10px;
+  }
+}
+
+.v-cripto-wallet {
+  font-size: 20px;
+  line-height: 35px;
+  word-break: break-word;
+}
+
+.v-copy-btn {
+  display: inline-block;
+  position: relative;
+
+  & button {
+    background-color: transparent;
+    border-radius: 3px;
+    border: solid 1px rgba(255,255,255,0.5);
+    padding: 0 9px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 30px;
+    letter-spacing: normal;
+    color: #ffffff;
+    cursor: pointer;
+    transition: .4s all ease;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    transform: translateY(-4px);
+  }
+}
+
+.e-transaction-payment-actions {
+  &__body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__full {
+    margin-left: 120px;
+    transition: .4s all ease;
+    -webkit-transition: .4s all ease;
+    -moz-transition: .4s all ease;
+    -ms-transition: .4s all ease;
+    -o-transition: .4s all ease;
+    -icab-transition: .4s all ease;
+    -khtml-transition: .4s all ease;
+    width: 100%;
+
+    &-wrapper {
+      margin-top: 30px;
+      margin-left: 120px;
+      transition: .4s all ease;
+      -webkit-transition: .4s all ease;
+      -moz-transition: .4s all ease;
+      -ms-transition: .4s all ease;
+      -o-transition: .4s all ease;
+      -icab-transition: .4s all ease;
+      -khtml-transition: .4s all ease;
+      // width: 536px;
+    }
+  }
+
+  &__aside {
+    width: 300px;
+    margin-left: 20px;
+  }
+}
+
+.display-flex {
+  display: flex!important;
+}
+
+.refresh {
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.38;
+  letter-spacing: normal;
+  color: #899caa;
+  position: relative;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url(https://netex24.net/dist/img/refresh.svg); 
+    -webkit-animation: rotating 10s ease infinite;
+    -moz-animation: rotating 10s ease infinite;
+    -ms-animation: rotating 10s ease infinite;
+    -o-animation: rotating 10s ease infinite;
+    animation: rotating 10s ease infinite;
+  }
+}
+
+@keyframes rotating {
+  0% { 
+    transform: rotate(0); 
+  }
+  100% { 
+    transform: rotate(360deg);
+  }
+}
+
+.e-transaction-setup__course-refresh-block {
+  // padding-bottom: 45px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+// .hidden {
+//   display: none;
+// }
