@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="40px" viewBox="0 0 30 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>A52A5EB2-3717-48E7-814A-FE1EA62E0C2B</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons/currencys/tinkoff/default" fill-rule="nonzero">
+            <rect id="Rectangle" fill-opacity="0" fill="#D8D8D8" x="0" y="-5" width="30" height="50"></rect>
+            <path d="M2.75,6.75 L2.75,22.1320322 C2.75,25.9594102 5.10715423,29.3915087 8.67941635,30.7654686 L14.9998805,33.1964391 L21.3205293,30.7654432 C24.8928199,29.3914981 27.25,25.9593851 27.25,22.1319859 L27.25,6.75 L2.75,6.75 Z" id="Rectangle" stroke="#231F20" stroke-width="1.5" fill="#FFE816"></path>
+            <rect id="Rectangle" fill="#231F20" x="8" y="11" width="14" height="4"></rect>
+            <rect id="Rectangle" fill="#231F20" x="13" y="14" width="4" height="13"></rect>
+        </g>
+    </g>
+</svg>
