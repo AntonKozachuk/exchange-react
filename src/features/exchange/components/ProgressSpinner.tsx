@@ -7,12 +7,14 @@ type ProgressSpinnerProps = {
   value: string | number;
   size: number;
   progress?: number;
+  bold?: boolean;
 }
 export function ProgressSpinner(props: ProgressSpinnerProps) {
   const {
     color,
     size,
     progress = 0,
+    bold,
     value,
   } = props;
 
@@ -25,17 +27,27 @@ export function ProgressSpinner(props: ProgressSpinnerProps) {
   const displayValue = typeof value === 'number' && value >= 60 ? formatTime(value) : value;
 
   return (
-    <div className={styles['e-progress-spinner']}>
+    <div className={styles['e-progress-spinner']} style={{
+      width: `${size}px`,
+      height: `${size}px`,
+    }}>
       <RefreshCircle size={size} stroke={color} progress={progress} />
       <div
         className={styles['e-progress-spinner__value']}
         style={{
           color,
           lineHeight: `${size}px`,
-          left: size > 30 ? '115%' : '0',
+          left: '0',
         }}
       >
-        {displayValue}
+        <div className={styles['e-progress-spinner__text']} style={{
+          width: `${size}px`,
+        }}>
+          {bold ? (<b>
+            {displayValue}
+          </b>
+          ) : displayValue}
+        </div>
       </div>
     </div>
   );

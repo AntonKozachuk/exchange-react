@@ -95,10 +95,10 @@
           width: 115px;
           margin-left: 18px;
 
-          position: absolute;
-          margin-left: 120px;
-          width: 120px;
-          margin-top: 65px;
+          // position: absolute;
+          // margin-left: 120px;
+          // width: 120px;
+          // margin-top: 65px;
         }
       }
     }
@@ -326,10 +326,37 @@
 .e-transaction-setup__course-refresh-block {
   // padding-bottom: 45px;
   position: absolute;
-  top: 0;
+  // top: 0;
   right: 0;
 }
 
 // .hidden {
 //   display: none;
 // }
+.e-cripro-aside {
+  width: 323px;
+  height: 378px;
+  background-color: #1f7feb;
+}
+
+.e-cripro-aside h2 {
+  font-size: 17px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.24;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  padding: 62px 43px 25px;
+}
+
+.cripro-qr {
+  position: relative;
+  width: 165px;
+  height: 165px;
+  margin: 0 auto;
+  border-radius: 5.7px;
+  background-color: #ffffff;
+  overflow: hidden;
+}

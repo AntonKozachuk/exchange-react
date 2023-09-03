@@ -304,3 +304,61 @@
   top: 0;
   right: 0;
 }
+
+.plate .v-sign.v-sign-danger {
+  background-image: url(https://netex24.net/dist/img/icon-danger.svg);
+}
+
+.plate .hr {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 10px 0 20px 0;
+  height: 1px;
+  background-color: #8c9caa;
+}
+.plate ul, .plate ol {
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  color: #0b2039;
+  padding-left: 25px;
+}
+.plate ul li, .plate ol li {
+  list-style-position: outside;
+  position: relative;
+  padding-left: 5px;
+}
+.plate ul.with-arms li:before, .plate ol.with-arms li:before {
+  content: '';
+  background-image: url(https://netex24.net/dist/img/icon-arm.png);
+  background-position: left top;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 26px;
+  position: absolute;
+  left: -25px;
+  top: 0;
+}
+
+.ag-info {
+  min-height: 40px;
+  padding: 7px 20px;
+  border-radius: 0 0 3px 3px;
+  background-color: #f4f8fb;
+  text-align: center;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0b2039;
+}
+
+.plate ul.blank li, .plate ol.blank li {
+  list-style-type: none
+}

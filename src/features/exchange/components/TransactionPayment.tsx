@@ -176,10 +176,11 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
                     <div className="vTimer">
                       <span className="pending-timer">
                         <ProgressSpinner
-                          size={100}
+                          size={75}
                           color="rgb(11, 32, 57)"
                           value={timeLeft}
                           progress={progress}
+                          bold
                         />
                       </span>
                     </div>
@@ -261,7 +262,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
                 </div>
               </div>
               <div className={styles['e-transaction-payment-back-body__aside']}>
-                <div>
+                <div className={styles['e-cripro-aside']}>
                   <h2>QR-код для оплаты через приложение</h2>
                   <div className={styles['cripro-qr']}>
                     <canvas height="165" width="165"></canvas>
