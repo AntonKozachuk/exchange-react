@@ -113,7 +113,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
   }, [showRefreshExchangeRate]);
 
   const status = {
-    translation: true
+    translation: false
   };
 
   return (
@@ -307,7 +307,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
           <div className={styles['hidden']}>
             <div className="vFormButton">
               <button type="submit" className="is-danger">
-                <div className="v-btn-title">Отменить</div>
+                <div className="v-btn-title">Submit</div>
               </button>
             </div>
           </div>

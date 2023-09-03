@@ -175,6 +175,14 @@
   justify-content: flex-start;
   align-items: flex-start;
   column-gap: 0;
+
+  > *:first-child {
+    margin-left: 0;
+  }
+
+  & > * {
+    margin-left: 15px;
+  }
 }
 
 .v-icon {
@@ -185,7 +193,7 @@
   align-items: center;
 }
 
-.x-info-block__main__body {
+.e-info-block__main__body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -193,28 +201,47 @@
   row-gap: 0;
 }
 
-.x-info-block__main__body__text {
+.e-info-block__main__body__text {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
 }
 
-.x-info-block__actions {
+.e-info-block__actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
   column-gap: 0;
 }
 
-.x-btn {
+
+
+
+.e-btn {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
 }
 
-.x-btn .x-btn__native {
+.e-info-block__actions > *:first-child {
+  margin-left: 0;
+}
+
+.e-info-block__actions > * {
+  flex: 1;
+}
+
+.e-info-block > * {
+  margin-top: 20px;
+}
+
+.e-info-block > *:first-child {
+  margin-top: 0;
+}
+
+.e-btn .e-btn__native {
   transition: .4s all ease;
   -webkit-transition: .4s all ease;
   -moz-transition: .4s all ease;
@@ -235,7 +262,15 @@
   position: relative;
 }
 
-.x-btn .x-btn__native .x-btn__native--body {
+.e-btn.black .e-btn__native {
+  background: #102037;
+}
+
+.e-btn.thin .e-btn__native {
+  padding: 0 10px;
+}
+
+.e-btn .e-btn__native .e-btn__native--body {
   opacity: 1;
   display: flex;
   justify-content: center;
@@ -243,7 +278,7 @@
   column-gap: 15px;
 }
 
-.x-btn .x-btn__native .x-btn--label {
+.e-btn .e-btn__native .e-btn--label {
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
@@ -252,9 +287,20 @@
   white-space: nowrap;
 }
 
-.x-btn.thin .x-btn__native .x-btn--label {
+.e-btn.thin .e-btn__native .e-btn--label {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
+}
+
+.e-btn.black .e-btn__native:hover {
+  box-shadow: 0 10px 30px 0 #d9e0e8;
+  background-color: #1f7feb;
+}
+
+.e-transaction-setup__course-refresh-block {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
