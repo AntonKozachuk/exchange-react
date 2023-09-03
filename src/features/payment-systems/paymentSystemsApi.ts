@@ -11,7 +11,7 @@ import { PaymentSystem } from './types';
 
 const paymentSystems: PaymentSystem[] = [
   {
-    logoPrefix: "images/payment-systems/c-qiwi.svg",
+    logoPrefix: "/images/payment-systems/c-qiwi.svg",
     name: "Qiwi",
     id: "Qiwi",
     symbol: "QW",
@@ -24,7 +24,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "1000000"
   },
   {
-    logoPrefix: "images/payment-systems/c-btc.svg",
+    logoPrefix: "/images/payment-systems/c-btc.svg",
     name: "Bitcoin",
     id: "Bitcoin",
     symbol: "BTC",
@@ -36,7 +36,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "10"
   },
   {
-    logoPrefix: "images/payment-systems/c-sberbank.svg",
+    logoPrefix: "/images/payment-systems/c-sberbank.svg",
     name: "Сбербанк ₽",
     id: "Сбербанк-₽",
     symbol: "RUB",
@@ -49,7 +49,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "500000.00"
   },
   {
-    logoPrefix: "images/payment-systems/c-tinkoff.svg",
+    logoPrefix: "/images/payment-systems/c-tinkoff.svg",
     name: "Тинькофф ₽",
     id: "Тинькофф-₽",
     symbol: "RUB",
@@ -62,7 +62,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "500000.00"
   },
   {
-    logoPrefix: "images/payment-systems/c-card.svg",
+    logoPrefix: "/images/payment-systems/c-card.svg",
     name: "Visa, MC ₽",
     id: "Visa,-MC-₽",
     symbol: "RUB",
@@ -75,7 +75,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "500000.00"
   },
   {
-    logoPrefix: "images/payment-systems/c-eth.svg",
+    logoPrefix: "/images/payment-systems/c-eth.svg",
     name: "Ethereum ETH",
     id: "Ethereum-ETH",
     symbol: "ETH",
@@ -87,7 +87,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "100"
   },
   {
-    logoPrefix: "images/payment-systems/c-ltc.svg",
+    logoPrefix: "/images/payment-systems/c-ltc.svg",
     name: "Litecoin",
     id: "Litecoin",
     symbol: "LTC",
@@ -99,7 +99,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "50"
   },
   {
-    logoPrefix: "images/payment-systems/c-usdt.svg",
+    logoPrefix: "/images/payment-systems/c-usdt.svg",
     name: "Tether ERC20 (USDT)",
     id: "Tether-ERC20-(USDT)",
     symbol: "USDT",
@@ -111,7 +111,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "100000"
   },
   {
-    logoPrefix: "images/payment-systems/c-usdt.svg",
+    logoPrefix: "/images/payment-systems/c-usdt.svg",
     name: "Tether BEP20 (USDT)",
     id: "Tether-BEP20-(USDT)",
     symbol: "USDT",
@@ -123,7 +123,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "50000"
   },
   {
-    logoPrefix: "images/payment-systems/c-pm.svg",
+    logoPrefix: "/images/payment-systems/c-pm.svg",
     name: "PerfectMoney $",
     id: "PerfectMoney-$",
     symbol: "$",
@@ -135,7 +135,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "10000"
   },
   {
-    logoPrefix: "images/payment-systems/c-tron-trx.svg",
+    logoPrefix: "/images/payment-systems/c-tron-trx.svg",
     name: "Tron (TRX)",
     id: "Tron-(TRX)",
     symbol: "TRX",
@@ -147,7 +147,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "1000"
   },
   {
-    logoPrefix: "images/payment-systems/bnb.svg",
+    logoPrefix: "/images/payment-systems/bnb.svg",
     name: "BinanceCoin BEP20",
     id: "BinanceCoin-BEP20",
     symbol: "BNB",
@@ -159,7 +159,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "1000"
   },
   {
-    logoPrefix: "images/payment-systems/c-alfa.svg",
+    logoPrefix: "/images/payment-systems/c-alfa.svg",
     name: "Альфа-Клик ₽",
     id: "Альфа-Клик-₽",
     symbol: "RUB",
@@ -172,7 +172,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "500000.00"
   },
   {
-    logoPrefix: "images/payment-systems/c-adv-cash.png",
+    logoPrefix: "/images/payment-systems/c-adv-cash.png",
     name: "Advanced Cash $",
     id: "Advanced-Cash-$",
     symbol: "$",
@@ -184,7 +184,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "10000"
   },
   {
-    logoPrefix: "images/payment-systems/c-pm.svg",
+    logoPrefix: "/images/payment-systems/c-pm.svg",
     name: "PerfectMoney €",
     id: "PerfectMoney-€",
     symbol: "€",
@@ -196,7 +196,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "10000"
   },
   {
-    logoPrefix: "images/payment-systems/c-doge.svg",
+    logoPrefix: "/images/payment-systems/c-doge.svg",
     name: "Dogecoin",
     id: "Dogecoin",
     symbol: "DOGE",
@@ -208,7 +208,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "10000"
   },
   {
-    logoPrefix: "images/payment-systems/c-ripple.svg",
+    logoPrefix: "/images/payment-systems/c-ripple.svg",
     name: "Ripple XRP",
     id: "Ripple-XRP",
     symbol: "XRP",
@@ -220,7 +220,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "100000"
   },
   {
-    logoPrefix: "images/payment-systems/dai.svg",
+    logoPrefix: "/images/payment-systems/dai.svg",
     name: "DAI (ERC20)",
     id: "DAI-(ERC20)",
     symbol: "DAI",
@@ -232,7 +232,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "50000"
   },
   {
-    logoPrefix: "images/payment-systems/c-adv-cash.png",
+    logoPrefix: "/images/payment-systems/c-adv-cash.png",
     name: "Advanced Cash ₽",
     id: "Advanced-Cash-₽",
     symbol: "RUB",
@@ -244,7 +244,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "500000.00"
   },
   {
-    logoPrefix: "images/payment-systems/c-usdc.svg",
+    logoPrefix: "/images/payment-systems/c-usdc.svg",
     name: "USD Coin ERC20 (USDC)",
     id: "USD-Coin-ERC20-(USDC)",
     symbol: "USDC",
@@ -256,7 +256,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "50000"
   },
   {
-    logoPrefix: "images/payment-systems/c-bch.png",
+    logoPrefix: "/images/payment-systems/c-bch.png",
     name: "Bitcoin Cash",
     id: "Bitcoin-Cash",
     symbol: "BCH",
@@ -268,7 +268,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "100"
   },
   {
-    logoPrefix: "images/payment-systems/c-promsvyaz.svg",
+    logoPrefix: "/images/payment-systems/c-promsvyaz.svg",
     name: "Промсвязьбанк",
     id: "Промсвязьбанк",
     symbol: "RUB",
@@ -281,7 +281,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "500000.00"
   },
   {
-    logoPrefix: "images/payment-systems/polkadot.svg",
+    logoPrefix: "/images/payment-systems/polkadot.svg",
     name: "Polkadot",
     id: "Polkadot",
     symbol: "DOT",
@@ -293,7 +293,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "1000"
   },
   {
-    logoPrefix: "images/payment-systems/shiba.svg",
+    logoPrefix: "/images/payment-systems/shiba.svg",
     name: "Shiba Inu (SHIB ERC20)",
     id: "Shiba-Inu-(SHIB-ERC20)",
     symbol: "SHIB",
@@ -305,7 +305,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "1000000"
   },
   {
-    logoPrefix: "images/payment-systems/c-russ-standart.svg",
+    logoPrefix: "/images/payment-systems/c-russ-standart.svg",
     name: "Русский Стандарт",
     id: "Русский-Стандарт",
     symbol: "RUB",
@@ -318,7 +318,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "500000.00"
   },
   {
-    logoPrefix: "images/payment-systems/you-money.svg",
+    logoPrefix: "/images/payment-systems/you-money.svg",
     name: "ЮMoney ₽",
     id: "ЮMoney-₽",
     symbol: "RUB",
@@ -331,7 +331,7 @@ const paymentSystems: PaymentSystem[] = [
     max: "500000.00"
   },
   {
-    logoPrefix: "images/payment-systems/c-mono.png",
+    logoPrefix: "/images/payment-systems/c-mono.png",
     name: "Монобанк UAH",
     id: "Монобанк-UAH",
     symbol: "UAH",
