@@ -1,4 +1,4 @@
-import { useFormik, useField } from 'formik';
+import { useFormik } from 'formik';
 import setupStyles from './TransactionSetup.module.scss';
 import styles from './TransactionPayment.module.scss';
 import { ExchangeSteps } from './ExchangeSteps';
@@ -11,6 +11,7 @@ import { useExchangeRefreshTimer } from '../hooks/use-exchange-refresh-timer';
 import { useEffect, useState } from 'react';
 import CopyToClipboardButton from './CopyToClipboardButton';
 import { TransactionInfo } from './TransactionInfo';
+import QRCode from "react-qr-code";
 
 type TransactionSetupProps = {
   onStepBack(): void;
@@ -265,7 +266,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
                 <div className={styles['e-cripro-aside']}>
                   <h2>QR-код для оплаты через приложение</h2>
                   <div className={styles['cripro-qr']}>
-                    <canvas height="165" width="165"></canvas>
+                    <QRCode value={"Test"} size={165} />
                   </div>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import styles from './PageTemplate.module.scss';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';

@@ -1,6 +1,3 @@
-import classNames from 'classnames';
-import { PaymentSystem } from '../../payment-systems/types';
-import { getImageSource } from '../helpers/get-image-source';
 import styles from './FormButton.module.scss';
 
 type FormButtonProps = {

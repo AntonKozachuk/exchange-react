@@ -1,17 +1,19 @@
-import React, { useEffect, Suspense } from 'react';
-// import logo from './logo.svg';
-// import { Counter } from './features/counter/Counter';
-// import './App.scss';
+import React, { useEffect } from 'react';
 import { IndexPage } from './pages/index/IndexPage';
 
 import { initApp } from './initApp';
-import { useAppDispatch } from './app/hooks';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 function App() {
   useEffect(() => {
     initApp();
   }, [])
   return (
-    <IndexPage />
+    <Router>
+      <Routes>
+        <Route path="/" element={<IndexPage />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,13 +1,10 @@
-import { useFormik, useField } from 'formik';
+import { useFormik } from 'formik';
 import styles from './TransactionDone.module.scss';
 import paymentStyles from './TransactionPayment.module.scss';
 import { ExchangeSteps } from './ExchangeSteps';
 import { RefreshExchangeRateContainer } from '../RefreshExchangeRateContainer';
 import { StepItem } from '../types';
 import { PaymentSystem } from '../../payment-systems/types';
-import { getImageSource } from '../helpers/get-image-source';
-import { Input } from '../../../common/components/Input';
-import { CalculatorFormField } from './CalculatorFormField';
 import classNames from 'classnames';
 import { TransactionInfo } from './TransactionInfo';
 import { FormButton } from './FormButton';
