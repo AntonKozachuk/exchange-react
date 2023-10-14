@@ -1,7 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { LastTransactions } from './LastTransactions';
 import { Transaction } from './types';
 export function TransactionsContainer() {
+  const { t } = useTranslation();
   const lastTransactions: Transaction[] = [
     {
       id: '1',
@@ -32,7 +34,7 @@ export function TransactionsContainer() {
   return (
     <LastTransactions
       transactions={lastTransactions}
-      title={'Последние обмены '}
+      title={t('recent') + " "}
     />
   );
 }

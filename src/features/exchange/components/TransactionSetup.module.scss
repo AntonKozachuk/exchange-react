@@ -47,14 +47,14 @@
   }
 
   &__course-refresh-block {
-    // position: absolute;
-    // right: 10px;
-    top: -90px;
-    // height: 64px;
-    // display: flex;
-    // justify-content: flex-end;
-    // align-items: center;
-    // min-width: 100px;
+    position: absolute;
+    right: 10px;
+    top: -64px;
+    height: 64px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 100px;
 
     @media only screen and (max-width: 767px) {
       height: 54px;
@@ -64,6 +64,16 @@
 
   &__calculator-line {
     margin-bottom: 25px;
+    position: relative;
+    min-height: 50px;
+  }
+
+  & .full {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding-right: 120px;
   }
 
   &__calculator-line-submit {

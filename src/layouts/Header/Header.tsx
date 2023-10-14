@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 import { Profile } from './components/Profile/Profile';
@@ -9,50 +10,52 @@ import { useMediaQuery } from '../../common/hooks/use-media-query';
 
 import helpDeskImage from './helpDesk.svg';
 import telegramImage from './telegram.svg';
+import classNames from 'classnames';
 
 export function Header() {
+  const { t, i18n } = useTranslation();
   const menuItems: MenuItem[] = [
     {
       href: '#/',
-      label: 'Обмен',
-      isActive: true,
+      label: t('menu.exchange'),
+      isActive: true
     },
     {
       href: '#/aboutService',
-      label: 'О сервисе',
+      label: t('menu.aboutService')
     },
     {
       href: '#/tariffs',
-      label: 'Тарифы',
+      label: t('menu.tariffs')
     },
     {
       href: '#/termsOfUse',
-      label: 'Правила использования',
+      label: t('menu.termsOfUse')
     },
     {
       href: 'http://support.netex24.net/forums/2-baza-znanij/',
-      label: 'База знаний',
+      label: t('menu.knowledgeBase')
     },
     {
       href: '#/moneybackPolicy',
-      label: 'Политика возвратов',
+      label: t('menu.moneyBack')
     },
     {
       href: '#/feedback',
-      label: 'Сотрудничество и PR',
+      label: t('menu.feedback')
     },
     {
       href: '#/partners',
-      label: 'Партнерам',
+      label: t('menu.partners')
     },
     {
       href: '#/kyt',
-      label: 'Политика KYT',
+      label: t('menu.kyt')
     },
     {
       href: '#/payout-api',
-      label: 'API массовые выплаты',
-    },
+      label: t('menu.payoutApi')
+    }
   ];
   const languages = [
     {
@@ -61,8 +64,8 @@ export function Header() {
       href: '#ru'
     },
     {
-      code: 'uk',
-      label: 'Uk',
+      code: 'en',
+      label: 'En',
       href: '#en'
     }
   ];
@@ -76,7 +79,16 @@ export function Header() {
     <header className={styles['e-header']}>
       <div className={styles['e-header__logo-container']}>
         <a href="#/">
-          <span className={styles['e-header__logo']}></span>
+          {i18n.language === 'ru' ? (
+            <span className={styles['e-header__logo']}></span>
+          ) : (
+            <span
+              className={classNames(
+                styles['e-header__logo'],
+                styles['e-header__logo-en']
+              )}
+            ></span>
+          )}
         </a>
       </div>
 
@@ -86,14 +98,14 @@ export function Header() {
             <MainButton
               href={'#/?next=tg://resolve?domain=Netex24autoexchange_bot'}
               imgSrc={telegramImage}
-              label={isMdMatched ? '' : 'Бот-обменник в Telegram'}
-            />)
-          }
+              label={isMdMatched ? '' : t('header.telegram')}
+            />
+          )}
           <MainButton
             href={'#/?next=http://support.netex24.net/'}
             className={styles['e-header--button-support']}
             imgSrc={helpDeskImage}
-            label={isMdMatched ? '' : 'Тех. поддержка 24/7'}
+            label={isMdMatched ? '' : t('header.support')}
           />
         </div>
 
@@ -102,11 +114,16 @@ export function Header() {
           <LanguageSelector
             items={languages}
             activeLangCode={languageCode}
-            onSelect={(language: LanguageSelectorItem) => setLanguageCode(language.code)}
+            onSelect={(language: LanguageSelectorItem) =>
+              setLanguageCode(language.code)
+            }
           />
         </div>
 
-        <BurgerMenu items={menuItems} className={styles['e-header--burger-modifier']} />
+        <BurgerMenu
+          items={menuItems}
+          className={styles['e-header--burger-modifier']}
+        />
       </div>
     </header>
   );

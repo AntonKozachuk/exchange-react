@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import styles from './ExchangeList.module.scss';
 import { Switcher, SwitcherOption } from '../../../common/components/Switcher';
 import { ExchangeListItem } from './ExchangeListItem';
@@ -67,19 +68,20 @@ export function ExchangeList(props: ExchangeListProps) {
     compactView = false,
   } = props;
 
+  const { t } = useTranslation();
 
   const isLargeScreen: boolean = useMediaQuery('(min-width: 767px)');
   const additionalDataType = useMemo<SwitcherOption[]>(() =>[
     {
       id: AdditionalDataView.COURSE,
-      label: 'Курс',
+      label: t('course'),
     },
     {
       id: AdditionalDataView.RESERVE,
-      label: 'Резервы',
+      label: t('reserve'),
     },
-  ], []);
-
+  ], [t]);
+  
   const [extraInfoType, setExtraInfoType] = useState<SwitcherOption>(() => additionalDataType[0]);
 
   return (

@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useMemo } from 'react';
 import classNames from 'classnames';
 import styles from './LanguageSelector.module.scss';
 import { LanguageSelectorItem } from '../../interfaces';
+import { useTranslation } from 'react-i18next';
 
 import ruFlag from './ru-flag.png';
 import ukFlag from './uk-flag.png';
@@ -9,7 +10,7 @@ import ukFlag from './uk-flag.png';
 
 
 const flagReferences = new Map([
-  ['uk', ukFlag],
+  ['en', ukFlag],
   ['ru', ruFlag]
 ]);
 
@@ -22,6 +23,7 @@ export function LanguageSelector(props: LanguageSelectorProps) {
   const rootNodeRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const { items, activeLangCode, onSelect } = props;
+  const { i18n } = useTranslation();
 
   const { languagesList, selectedLanguage } = useMemo(() => {
     const selectedLanguage = items.find((item) => item.code === activeLangCode);
@@ -78,7 +80,10 @@ export function LanguageSelector(props: LanguageSelectorProps) {
           <li
             key={language.code}
             className={styles['e-language-selector__language-list-item']}
-            onClick={() => onSelect(language)}
+            onClick={() => {
+              onSelect(language);
+              i18n.changeLanguage(language.code); // Change language when a new language is selected
+            }}
           >
             <img
               className={styles['e-language-selector__language-item-flag']}

@@ -1,0 +1,141 @@
+{
+  "give": "You give",
+  "receive": "You get",
+  "reserve": "Reserve",
+  "course": "Course",
+  "filter": {
+    "all": "All",
+    "crypto": "Crypto",
+    "fiat": "Fiat"
+  },
+  "sourceAmountError": "Amount field cannot be empty",
+  "sourceWalletAddressError": "Incorrect wallet address",
+  "phoneError": "Enter phone number in the format +7 (903) 123-45-67",
+  "emailError": "Incorrect email",
+  "exchange": "Exchange",
+  "to": "For",
+  "sum": "Amount",
+  "min": "Minimum",
+  "max": "Maximum",
+  "address": "Address",
+  "cardNumber": "Card number",
+  "yourNumber": "Your phone number",
+  "email": "Email",
+  "cashback": "For this operation, you may be credited with cashback. Find out in your <a href=\"#/members\" target=\"_self\">personal account</a> how to get it.",
+  "proceedToPayment": "Proceed to exchange",
+  "paymentConfirmation": "By clicking the \"Proceed to exchange\" button you confirm your agreement with the",
+  "termsOfUse": "Terms of use of Netex24 Service",
+  "and": "and",
+  "amlKycPolicies": "AML/KYC policies",
+  "refreshExchangeRate": "Rate",
+  "amlPlate": {
+    "title": "We can verify exchanges in accordance with",
+    "link": "AML/KYC policy",
+    "body": {
+      "first": "If the transaction is identified as risky, we can suspend the exchange operation and ask to go through the identification procedure.",
+      "second": "If the payment is received after the cancellation of the application, you may be offered a refund or resumption of the exchange at the new rate.",
+      "link": "Read more"
+    }
+  },
+  "header": {
+    "telegram": "Telegram bot exchanger",
+    "support": "Support 24/7"
+  },
+  "menu": {
+    "exchange": "Exchange",
+    "aboutService": "About",
+    "tariffs": "Rates",
+    "termsOfUse": "Terms of Use",
+    "knowledgeBase": "Knowledge base",
+    "moneyBack": "Return policy",
+    "feedback": "Cooperation and PR",
+    "partners": "Partners",
+    "kyt": "KYT policy",
+    "payoutApi": "Payout API"
+  },
+  "banners": {
+    "cashback": {
+      "title": "Cashback for each exchange",
+      "text": "We started paying cashback for the<br> exchange from 3% to 25%"
+    },
+    "giveaway": {
+      "title": "We give away RUB 25,000 every week",
+      "text": "Leave a feedback on the exchange, join the contest and win the prize"
+    },
+    "api": {
+      "title": "API for payouts to cards",
+      "text": "Automated RUB payouts to<br> bank cards of Russia and CIS"
+    }
+  },
+  "news": {
+    "title": "News",
+    "more": "All"
+  },
+  "recent": "Recent exchanges",
+  "statistic": {
+    "title": "Netex24 in numbers",
+    "reviews": " Reviews count",
+    "newClients": "New customers per day",
+    "exchanged": "24 hour exchanges",
+    "reserve": "Reserves",
+    "money": "24 hour volume"
+  },
+  "footer": {
+    "title": "We have been changing since 2007",
+    "about": "Multi-currency exchange service.",
+    "description": "In the same year, a certain Satoshi Nakamoto announced that he had begun working on the concept of a new monetary system, named by the author as Bitcoin"
+  },
+  "payment": {
+    "waiting": {
+      "title": "Ожидание оплаты",
+      "pay": "Pay the application before the end of this time",
+      "transfer": "Transfer",
+      "toWallet": "to wallet",
+      "copy": "Copy",
+      "address": "This address is for receiving only",
+      "made": "If you have already made the transfer, wait for the payment to be processed.",
+      "registered": "We'll see your payment and continue exchange after transaction will be registered in the network.",
+      "qr": "QR code for payment through the application"
+    },
+    "sending": {
+      "title": "Обмен выполняется"
+    },
+    "auto": "We check the payment automatically so that you do not have to refresh the page."
+  },
+  "done": {
+    "success": {
+      "title": "Exchange is successful",
+      "body": {
+        "text": {
+          "thanks": "Thank you for your trust and for using the service. We will be glad to see you again. If you liked our service, please",
+          "link": "leave a short review for us."
+        },
+        "look": {
+          "text": "To find transaction ",
+          "link": "block explorer"
+        },
+        "buttons": {
+          "new": "New exchange",
+          "repeat": "Repeat",
+          "participate": "Apply now"
+        },
+        "review": "Give us a short feedback about our work and take part in a drawing for 25000 rubles. In 0 d. 20 h. 35 m. and 12 s our smart contract will choose new winners. You could be one of them!"
+      }
+    },
+    "fail": {
+      "title": "Translation canceled",
+      "body": {
+        "text": "If the payment was made after the transaction cancellation, or our service does not see the payment for other reasons, please don’t worry, we will find your payment in manual mode.",
+        "support": {
+          "text": "Please create a ticket in our",
+          "link": "help desk",
+          "text2": "to contact our support"
+        },
+        "reply": "The operators will respond to your message, find a payment and complete the exchange."
+      },
+      "again": "Try again",
+      "direction": "On direction "
+    }
+  },
+  "dated": "dated"
+}

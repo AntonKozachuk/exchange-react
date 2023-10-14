@@ -1,7 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './Footer.module.scss';
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <div className={styles['e-footer']}>
       <div className={styles['e-footer__wrapper']}>
@@ -10,17 +13,17 @@ export function Footer() {
         </div>
 
         <div className={styles['e-footer__title']}>
-          Меняем с 2007 года
+          {t('footer.title')}
         </div>
 
         <div className={styles['e-footer__description']}>
-          <span>Мультивалютный обменный сервис</span>
+          <span>{t('footer.about')}</span>
           <br />
           <a href="#support@netex24.net">support@netex24.net</a>
         </div>
 
         <div className={styles['e-footer__description']}>
-          В этот же год некий Сатоши Накамото сообщил, что начал работать над концепцией новой денежной системы, названной автором как Биткоин
+          {t('footer.description')}
         </div>
       </div>
     </div>

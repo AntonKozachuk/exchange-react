@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { NewsSection } from './NewsSection';
 import { News } from './types';
 
 export function NewsContainer() {
+  const { t } = useTranslation();
   const news: News[] = [
     {
       date: '14 мар.',
@@ -18,8 +20,8 @@ export function NewsContainer() {
 
   return (
     <NewsSection
-      title={'Новости'}
-      moreLabel={'Все'}
+      title={t('news.title')}
+      moreLabel={t('news.more')}
       moreHref={'#/news'}
       news={news}
     />

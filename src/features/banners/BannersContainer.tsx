@@ -1,24 +1,26 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import cashbackSrc from './images/top-banner-cashback.png';
 import top25Src from './images/top-banner-25.png';
 import paymentSrc from './images/top-banner-payout.png';
 import { Banners } from './Banners';
 
 export function BannersContainer() {
+  const { t } = useTranslation();
   const slides = [
     {
-      title: 'Кешбэк с каждого обмена',
-      text: 'Начисляем кешбэк от 3% до 25%<br> на бонусный счёт биржи<br> NetexTrade',
+      title: t('banners.cashback.title'),
+      text: t('banners.cashback.text'),
       imgSrc: cashbackSrc
     },
     {
-      title: 'Разыгрываем 25 000 руб. каждую неделю',
-      text: 'Оставляй отзыв к обмену, становись участником и получай выигрыш',
+      title: t('banners.giveaway.title'),
+      text: t('banners.giveaway.text'),
       imgSrc: top25Src
     },
     {
-      title: 'API для массовых<br> выплат на карты',
-      text: 'Начисляем кешбэк от 3% до 25%<br> на бонусный счёт биржи<br> NetexTrade',
+      title: t('banners.api.title'),
+      text: t('banners.api.text'),
       imgSrc: paymentSrc
     }
   ];

@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 import { useAppSelector } from '../../app/hooks';
 import { selectPaymentSystems } from '../payment-systems/paymentSystemsSlise';
@@ -44,6 +45,7 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
   const [transactionPair, setTransactionPair] = useState<[PaymentSystem, PaymentSystem] | []>([])
 
   const filterOptions: FilterOption[] = getFilterOptions();
+  const { t, i18n } = useTranslation();
 
   const [sourceFilter, setSourceFilter] = useState<string>(FilterType.ALL);
   const [targetFilter, setTargetFilter] = useState<string>(FilterType.ALL);
@@ -116,7 +118,9 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
 
   const sideBar = !transactionPair.length ? (
     <div>
-      <StartTradeBanner />
+      {i18n.language !== 'en' && (
+        <StartTradeBanner />
+      )}
       <NewsContainer />
       <TransactionsContainer />
       <StatisticContainer />
@@ -182,7 +186,7 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
       />
 
       <ExchangeList
-        title={'Отдаете'}
+        title={t('give')}
         className={classNames(
           layoutStyles['e-exchange-layout__direction-section'],
           layoutStyles['e-exchange-layout__direction-section--source']
@@ -201,7 +205,7 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
 
       {(isLargeScreen || Boolean(sourceSystem)) && (
         <ExchangeList
-          title={'Получаете'}
+          title={t('receive')}
           className={classNames(
             layoutStyles['e-exchange-layout__direction-section'],
             layoutStyles['e-exchange-layout__direction-section--target']

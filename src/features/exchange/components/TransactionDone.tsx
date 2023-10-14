@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import styles from './TransactionDone.module.scss';
 import paymentStyles from './TransactionPayment.module.scss';
 import { ExchangeSteps } from './ExchangeSteps';
@@ -67,8 +68,10 @@ export function TransactionDone(props: TransactionDoneProps) {
     }
   });
 
+  const { t, i18n } = useTranslation();
+
   const status = {
-    success: true
+    success: false
   };
 
   return (
@@ -106,7 +109,7 @@ export function TransactionDone(props: TransactionDoneProps) {
               { [styles['is-success']]: status.success }
             )}
           >
-            {status.success ? 'Обмен завершен' : 'Перевод отменен'}
+            {status.success ? t('done.success.title') : t('done.fail.title')}
           </div>
           <div
             className={classNames(
@@ -114,7 +117,7 @@ export function TransactionDone(props: TransactionDoneProps) {
               { [styles['is-success']]: status.success }
             )}
           >
-            №8453917 <span className="dated">от</span> 15.08.2023
+            №8453917 <span className="dated">{t('dated')}</span> 15.08.2023
           </div>
         </div>
 
@@ -133,14 +136,13 @@ export function TransactionDone(props: TransactionDoneProps) {
                     )}
                   ></div>
                   <p className={styles['p-left']}>
-                    Спасибо за использование сервиса и доверие. Будем рады
-                    видеть Вас снова. Если вам понравилась наша работа, просим
+                    {t('done.success.body.text.thanks')}
                     <a
                       target="_blank"
                       href="https://www.bestchange.ru/netex24-exchanger.html"
                       className="comment-link"
                     >
-                      подарить нам короткий отзыв
+                      {t('done.success.body.text.link')}
                     </a>
                   </p>
                 </div>
@@ -165,14 +167,16 @@ export function TransactionDone(props: TransactionDoneProps) {
                     )}
                   />
                   <p>
-                    <span className="translate-it">Посмотреть операцию в </span>
+                    <span className="translate-it">
+                      {t('done.success.body.look.text')}
+                    </span>
                     <span className="vBlockcainExplorerLink">
                       <a
                         href="https://blockchair.com/dogecoin/transaction/9cb2e3371db81744013df3f280ed01f3f3769350d265461ac2cdc2f352931936"
                         target="_blank"
                         className="translate-it"
                       >
-                        браузере блоков
+                        {t('done.success.body.look.link')}
                       </a>
                     </span>
                   </p>
@@ -186,8 +190,11 @@ export function TransactionDone(props: TransactionDoneProps) {
               <div className={styles['e-transaction-done-actions']}>
                 <div className="actions-group">
                   <div className={styles['v-flex']}>
-                    <FormButton text={'Новый обмен'} />
-                    <FormButton text={'Повторить'} isRepeat />
+                    <FormButton text={t('done.success.body.buttons.new')} />
+                    <FormButton
+                      text={t('done.success.body.buttons.repeat')}
+                      isRepeat
+                    />
                   </div>
                   <div
                     className={classNames(
@@ -224,10 +231,7 @@ export function TransactionDone(props: TransactionDoneProps) {
                         <div
                           className={styles['e-info-block__main__body__text']}
                         >
-                          Подари нам короткий отзыв о нашей работе и прими
-                          участие в розыгрыше 25000 руб. Через 5 д. 13 ч. 55 м.
-                          22 с. наш смарт-контракт выберет новых победителей. Ты
-                          можешь быть в их числе!
+                          {t('done.success.body.review')}
                         </div>
                       </div>
                     </div>
@@ -242,7 +246,7 @@ export function TransactionDone(props: TransactionDoneProps) {
                         <button className={styles['e-btn__native']}>
                           <span className={styles['e-btn__native--body']}>
                             <span className={styles['e-btn--label']}>
-                              Стать участником
+                              {t('done.success.body.buttons.participate')}
                             </span>
                           </span>
                         </button>
@@ -265,25 +269,32 @@ export function TransactionDone(props: TransactionDoneProps) {
                       styles['v-sign-danger']
                     )}
                   ></div>
-                  <p className="translate-it">
-                    Если оплата была произведена после отмены операции, или наш
-                    сервис не видит оплату по другим причинам, не переживайте,
-                    мы найдем ваш платеж в ручном режиме.
-                  </p>
-                  <div className={styles["hr"]}></div>
-                  <ul className={styles["with-arms"]}>
+                  <p className="translate-it">{t('done.fail.body.text')}</p>
+                  <div className={styles['hr']}></div>
+                  <ul className={styles['with-arms']}>
                     <li className="translate-it">
-                      Для обращения в службу поддержки создайте тикет{' '}
-                      <a href="http://support.netex24.net/" target="_blank">
-                        в нашем хелп-деске
-                      </a>
+                      {i18n.language === 'ru' ? (
+                        <>
+                          {t('done.fail.body.support.text') + ' '}
+                          <a href="http://support.netex24.net/" target="_blank">
+                            {t('done.fail.body.support.link')}
+                          </a>
+                        </>
+                      ) : (
+                        <>
+                          {t('done.fail.body.support.text') + ' '}
+                          <a href="http://support.netex24.net/" target="_blank">
+                            {t('done.fail.body.support.link')}
+                          </a>
+                          {' ' + t('done.fail.body.support.text2')}
+                        </>
+                      )}
                       .
                     </li>
                   </ul>
-                  <ul className={styles["blank"]}>
+                  <ul className={styles['blank']}>
                     <li className="translate-it">
-                      Операторы обязательно ответят на ваше сообщение, найдут
-                      платеж и завершат обмен.
+                      {t('done.fail.body.reply')}
                     </li>
                   </ul>
                 </div>
@@ -295,13 +306,13 @@ export function TransactionDone(props: TransactionDoneProps) {
               <div className={styles['e-transaction-done-actions']}>
                 <div className="actions-group">
                   <div className="ag-field">
-                    <FormButton text={'Попробовать еще раз'} />
+                    <FormButton text={t('done.fail.again')} />
                   </div>
-                  <div className={styles["ag-info"]}>
-                    <span className="translate-it">По направлению</span>
-                    <span className="translate-it">
-                      Tether TRC20 (USDT)
-                    </span> → <span className="translate-it">Dogecoin</span>
+                  <div className={styles['ag-info']}>
+                    <span>{t('done.fail.direction')}</span>
+                    <span>
+                      {sourceSystem.name}
+                    </span> → <span>{targetSystem.name}</span>
                   </div>
                 </div>
               </div>

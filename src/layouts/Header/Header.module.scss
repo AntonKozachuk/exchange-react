@@ -35,6 +35,10 @@
     background-image: url(logo.svg);
   }
 
+  &__logo-en {
+    background-image: url(logo-en.svg);
+  }
+
   &__navigation {
     display: flex;
     flex-direction: row;

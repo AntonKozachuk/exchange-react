@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { RefreshExchangeRate} from './components/RefreshExchangeRate';
 import { useExchangeRefreshTimer } from './hooks/use-exchange-refresh-timer';
 import { Spinner } from '../../common/components/Spinner';
+import { useTranslation } from 'react-i18next';
 
 type RefreshExchangeRateContainerProps = {
   sourceCourse: number;
@@ -15,6 +16,7 @@ export function RefreshExchangeRateContainer(props: RefreshExchangeRateContainer
   const [progress, timeLeft] = useExchangeRefreshTimer(REFRESH_TIME, true);
   const [showSpinner, setShowSpinner] = useState(false);
   const [showRefreshExchangeRate, setShowRefreshExchangeRate] = useState(true);
+  const { t } = useTranslation();
 
   let rate;
   if (sourceCourse >= targetCourse) {
@@ -60,7 +62,7 @@ export function RefreshExchangeRateContainer(props: RefreshExchangeRateContainer
 
       {showRefreshExchangeRate && (
         <RefreshExchangeRate
-          label={'Курс'}
+          label={t('refreshExchangeRate')}
           rate={rate}
           progressPercents={progress}
           progressValue={timeLeft}

@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import setupStyles from './TransactionSetup.module.scss';
 import styles from './TransactionPayment.module.scss';
 import { ExchangeSteps } from './ExchangeSteps';
@@ -77,6 +78,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
     }
   });
   const REFRESH_TIME = 1200;
+  const { t } = useTranslation();
 
   const [progress, timeLeft] = useExchangeRefreshTimer(REFRESH_TIME, true);
   const [showSpinner, setShowSpinner] = useState(false);
@@ -148,10 +150,10 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
           })}
         >
           <div className={styles['e-transaction-payment__header--title']}>
-            {!status.translation ? 'Ожидание оплаты' : 'Обмен выполняется'}
+            {!status.translation ? t('payment.waiting.title') : t('payment.sending.title')}
           </div>
           <div className={styles['e-transaction-payment__header--title-info']}>
-            №8453917 <span className="dated">от</span> 15.08.2023
+            №8453917 <span className="dated">{t('dated')}</span> 15.08.2023
           </div>
         </div>
 
@@ -190,7 +192,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
                         styles['e-transaction-payment-body__aside--timer--text']
                       }
                     >
-                      Оплатите заявку до окончания этого времени
+                      {t('payment.waiting.pay')}
                     </div>
                   </div>
                 </div>
@@ -206,7 +208,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
                     styles['p-left']
                   )}
                 >
-                  <h3>Переведите</h3>
+                  <h3>{t('payment.waiting.transfer')}</h3>
                   <div className={styles['v-cripto-block']}>
                     {sourceAmount}
                     <span>{sourceSystem.name}</span>
@@ -216,13 +218,13 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
                         <div className={styles['v-copy-btn']}>
                           <CopyToClipboardButton
                             data={sourceAmount}
-                            buttonText="Копировать"
+                            buttonText={(t('payment.waiting.copy'))}
                           />
                         </div>
                       </span>
                     </span>
                   </div>
-                  <h3>На кошелек</h3>
+                  <h3>{t('payment.waiting.toWallet')}</h3>
                   <div
                     className={classNames(
                       styles['v-cripto-block'],
@@ -236,7 +238,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
                         <div className={styles['v-copy-btn']}>
                           <CopyToClipboardButton
                             data={sourceAmount}
-                            buttonText="Копировать"
+                            buttonText={(t('payment.waiting.copy'))}
                           />
                         </div>
                       </span>
@@ -245,26 +247,25 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
                   <div className={styles['space']}></div>
                   <p className={styles['mini']}>
                     <b>
-                      {'Данный адрес предназначен только для приема '}
+                      {t('payment.waiting.address') + ' '}
                       {sourceSystem.name}{' '}
                     </b>
                   </p>
                   <p className={styles['mini']}>
                     <b>
-                      Если вы уже сделали перевод, дождитесь обработки платежа.
+                      {t('payment.waiting.made')}
                     </b>
                   </p>
                   <p className={styles['mini']}>
                     <b>
-                      После того как транзакция будет зарегистрирована в сети,
-                      мы увидим платеж и продолжим обмен.
+                      {t('payment.waiting.registered')}
                     </b>
                   </p>
                 </div>
               </div>
               <div className={styles['e-transaction-payment-back-body__aside']}>
                 <div className={styles['e-cripro-aside']}>
-                  <h2>QR-код для оплаты через приложение</h2>
+                  <h2>{t('payment.waiting.qr')}</h2>
                   <div className={styles['cripro-qr']}>
                     <QRCode value={"Test"} size={165} />
                   </div>
@@ -302,8 +303,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
           ></div>
           <div className={styles['display-flex']}>
             <div className={styles['refresh']}>
-              Мы проверяем оплату автоматически, чтобы вам не приходилось
-              обновлять страницу.
+              {t('payment.auto')}
             </div>
           </div>
           <div className={styles['hidden']}>
