@@ -1,7 +1,6 @@
 import React from 'react';
-import classNames from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper';
+import { Pagination } from 'swiper';
 import { BannerItem } from './BannerItem';
 
 import './Banners.scss';

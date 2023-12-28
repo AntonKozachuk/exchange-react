@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { useAppSelector } from '../../app/hooks';
 import { selectPaymentSystems } from '../payment-systems/paymentSystemsSlise';
@@ -38,6 +39,14 @@ const useFilteredPayments = (paymentSystems: PaymentSystem[], filterType: string
   }, [paymentSystems, filterType])
 }
 
+const findPaymentSystemById = (id: number, paymentSystems: PaymentSystem[]) => {
+  return paymentSystems.find(system => system.id === id);
+};
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProps) {
   const paymentSystems: PaymentSystem[] = useAppSelector<PaymentSystem[]>(selectPaymentSystems, shallowEqual);
   const [sourceSystem, setSourceSystem] = useState<PaymentSystem | null>(null);
@@ -46,6 +55,9 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
 
   const filterOptions: FilterOption[] = getFilterOptions();
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const query = useQuery();
 
   const [sourceFilter, setSourceFilter] = useState<string>(FilterType.ALL);
   const [targetFilter, setTargetFilter] = useState<string>(FilterType.ALL);
@@ -103,7 +115,6 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
       setActiveStepId(steps[currentStepIndex + 1].id);
     }
 
-    // Store the sourceAmount and targetAmount in state or do whatever you need with them
     setSourceAmount(values.sourceAmount);
     setTargetAmount(targetAmount);
   };
@@ -113,6 +124,33 @@ export function ExchangeContainer({ className = ''}: SourcePaymentsContainerProp
       setSourceSystem(paymentSystems[0]);
     }
   }, [paymentSystems, sourceSystem, isLargeScreen])
+
+  useEffect(() => {
+    if (transactionPair.length === 2) {
+      const sourceId = transactionPair[0].id; // Assuming .id is the property you want
+      const targetId = transactionPair[1].id;
+      const newPath = `/${i18n.language}/?source=${sourceId}&target=${targetId}`;
+      navigate(newPath, { replace: true });
+    }
+  }, [transactionPair, navigate, i18n.language]);
+
+  useEffect(() => {
+    const sourceId = query.get('source');
+    const targetId = query.get('target');
+  
+    if (sourceId && targetId && paymentSystems) {
+      // Assuming you have a way to find payment systems by their ID
+      const foundSourceSystem = findPaymentSystemById(Number(sourceId), paymentSystems);
+      const foundTargetSystem = findPaymentSystemById(Number(targetId), paymentSystems);
+  
+      if (foundSourceSystem && foundTargetSystem && paymentSystems) {
+        setSourceSystem(foundSourceSystem);
+        setTargetSystem(foundTargetSystem);
+        setTransactionPair([foundSourceSystem, foundTargetSystem]);
+      }
+    }
+  }, [paymentSystems]);  
+  
 
   if (!paymentSystems.length) return null;
 

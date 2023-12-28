@@ -13,16 +13,17 @@ const REFRESH_TIME = 30;
 export function RefreshExchangeRateContainer(props: RefreshExchangeRateContainerProps) {
   const { sourceCourse, targetCourse } = props;
 
-  const [progress, timeLeft] = useExchangeRefreshTimer(REFRESH_TIME, true);
+  const [timerKey, setTimerKey] = useState(0);
+  const [progress, timeLeft] = useExchangeRefreshTimer(REFRESH_TIME, true, timerKey);
   const [showSpinner, setShowSpinner] = useState(false);
   const [showRefreshExchangeRate, setShowRefreshExchangeRate] = useState(true);
   const { t } = useTranslation();
 
   let rate;
   if (sourceCourse >= targetCourse) {
-    rate = `1 : ${(sourceCourse / targetCourse).toFixed(6)}`;
+    rate = `1 : ${(sourceCourse / targetCourse).toFixed(4).replace(/\.?0+$/, '')}`;
   } else {
-    rate = `${(targetCourse / sourceCourse).toFixed(6)} : 1`;
+    rate = `${(targetCourse / sourceCourse).toFixed(4).replace(/\.?0+$/, '')} : 1`;
   }
 
   useEffect(() => {
@@ -55,6 +56,10 @@ export function RefreshExchangeRateContainer(props: RefreshExchangeRateContainer
       };
     }
   }, [showRefreshExchangeRate]);
+
+  useEffect(() => {
+    setTimerKey(prevKey => prevKey + 1);
+  }, [sourceCourse, targetCourse]);  
 
   return (
     <>

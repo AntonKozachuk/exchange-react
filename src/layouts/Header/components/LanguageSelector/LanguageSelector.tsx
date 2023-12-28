@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from './LanguageSelector.module.scss';
 import { LanguageSelectorItem } from '../../interfaces';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import ruFlag from './ru-flag.png';
 import ukFlag from './uk-flag.png';
@@ -24,6 +25,7 @@ export function LanguageSelector(props: LanguageSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { items, activeLangCode, onSelect } = props;
   const { i18n } = useTranslation();
+  const navigate = useNavigate();
 
   const { languagesList, selectedLanguage } = useMemo(() => {
     const selectedLanguage = items.find((item) => item.code === activeLangCode);
@@ -83,6 +85,9 @@ export function LanguageSelector(props: LanguageSelectorProps) {
             onClick={() => {
               onSelect(language);
               i18n.changeLanguage(language.code); // Change language when a new language is selected
+
+              const newPath = `/${language.code}/` + window.location.search;
+              navigate(newPath, { replace: true });
             }}
           >
             <img
@@ -93,7 +98,7 @@ export function LanguageSelector(props: LanguageSelectorProps) {
             <span className={styles['e-language-selector__language-item-code']}>
               {language.label}
             </span>
-            <a className={styles['e-language-selector__language-switcher']} href={language.href} />
+            <a className={styles['e-language-selector__language-switcher']} />
           </li>
         ))}
       </ul>

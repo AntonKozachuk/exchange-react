@@ -16,7 +16,7 @@ type ExchangeListProps = {
   selectedFilter?: string;
   onFilterChange?: (data: SwitcherOption) => void;
   paymentSystems?: PaymentSystem[];
-  activeId?: string;
+  activeId?: number;
   additionalInfo?: boolean;
   onItemClick?: (data: PaymentSystem) => void;
   onItemChange?: (data: PaymentSystem) => void;
@@ -32,8 +32,8 @@ enum AdditionalDataView {
 
 function getAdditionalInfo(shouldBeShown: boolean, dataType: string, paymentSystem: PaymentSystem) {
   if (shouldBeShown) {
-    if (dataType === AdditionalDataView.COURSE) return paymentSystem.course;
-    if (dataType === AdditionalDataView.RESERVE) return paymentSystem.reserve;
+    if (dataType === AdditionalDataView.COURSE) return parseFloat(paymentSystem.course).toFixed(4).replace(/\.?0+$/, '');
+    if (dataType === AdditionalDataView.RESERVE) return parseFloat(paymentSystem.reserve).toFixed(4).replace(/\.?0+$/, '');
   }
 
   return '';
@@ -105,7 +105,7 @@ export function ExchangeList(props: ExchangeListProps) {
         )}
       </div>
 
-      {Boolean(filterOptions.length) && shouldRenderFilter(compactView, isLargeScreen, activeId) && (
+      {Boolean(filterOptions.length) && shouldRenderFilter(compactView, isLargeScreen, activeId?.toString()) && (
         <Switcher
           options={filterOptions}
           onSelect={(filterData: SwitcherOption) => onFilterChange(filterData)}

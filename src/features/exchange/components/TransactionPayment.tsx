@@ -80,7 +80,7 @@ export function TransactionPayment(props: TransactionSetupProps | any) {
   const REFRESH_TIME = 1200;
   const { t } = useTranslation();
 
-  const [progress, timeLeft] = useExchangeRefreshTimer(REFRESH_TIME, true);
+  const [progress, timeLeft] = useExchangeRefreshTimer(REFRESH_TIME, true, 0);
   const [showSpinner, setShowSpinner] = useState(false);
   const [showRefreshExchangeRate, setShowRefreshExchangeRate] = useState(true);
 

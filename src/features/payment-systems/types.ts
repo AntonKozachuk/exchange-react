@@ -1,5 +1,5 @@
 export type PaymentSystem = {
-  id: string; // delete string
+  id: number; // delete string
   name: string;
   symbol: string;
   type: 'fiat' | 'crypto';

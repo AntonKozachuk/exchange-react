@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import axios from 'axios';
 import styles from './TransactionSetup.module.scss';
 import stylesCalc from './CalculatorFormField.module.scss';
 import { ExchangeSteps } from './ExchangeSteps';
@@ -10,6 +11,7 @@ import { CalculatorFormField } from './CalculatorFormField';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import AmlPlate from './AmlPlate';
+import { useEffect } from 'react';
 
 type TransactionSetupProps = {
   onStepBack(): void;
@@ -51,10 +53,25 @@ const calcul = (
   }
   let result = sourceAmountToDollars / targetCourse;
 
-  result = Math.round(result * 1000) / 1000;
-
-  return result.toString();
+  return result.toFixed(4).replace(/\.?0+$/, '').toString();
 };
+
+const reverseCalcul = (targetAmount: string, sourceSystem: PaymentSystem, targetSystem: PaymentSystem): string => {
+  let targetCourse = parseFloat(targetSystem.course);
+  if (targetSystem.type === 'fiat') {
+    targetCourse = 1 / targetCourse;
+  }
+  let targetAmountToDollars = parseFloat(targetAmount) * targetCourse;
+
+  let sourceCourse = parseFloat(sourceSystem.course);
+  if (sourceSystem.type === 'fiat') {
+    sourceCourse = 1 / sourceCourse;
+  }
+  let result = targetAmountToDollars / sourceCourse;
+
+  return result.toFixed(4).replace(/\.?0+$/, '').toString();
+};
+
 
 export function TransactionSetup(props: TransactionSetupProps) {
   const {
@@ -95,7 +112,7 @@ export function TransactionSetup(props: TransactionSetupProps) {
         errors.sourceCardNumber = 'Source card number cannot be empty';
       }
 
-      if (!values.sourceWalletAddress) {
+      if (sourceSystem.type === 'crypto' && !values.sourceWalletAddress) {
         errors.sourceWalletAddress =
           t('sourceWalletAddressError') + ' ' + sourceSystem.name;
       }
@@ -110,7 +127,14 @@ export function TransactionSetup(props: TransactionSetupProps) {
 
       return errors;
     },
-    onSubmit: (values, { setSubmitting }) => {
+    onSubmit: async (values, { setSubmitting }) => {
+      const sourceAmountValue = parseFloat(values.sourceAmount);
+
+      if (isNaN(sourceAmountValue) || sourceAmountValue < sourceMin || sourceAmountValue > sourceMax) {
+        setSubmitting(false);
+        return;
+      }
+
       const targetAmount = calcul(
         values.sourceAmount,
         sourceSystem,
@@ -120,7 +144,36 @@ export function TransactionSetup(props: TransactionSetupProps) {
       setSourceAmount(values.sourceAmount);
       setTargetAmount(targetAmount);
 
-      goToNextStep(values, targetAmount);
+      // const postData = {
+      //   sourceAmount: values.sourceAmount,
+      //   sourceCardNumber: values.sourceCardNumber,
+      //   sourceWalletAddress: values.sourceWalletAddress,
+      //   targetAmount: values.targetAmount,
+      //   targetCardNumber: values.targetCardNumber,
+      //   targetWalletAddress: values.targetWalletAddress,
+      //   phone: values.phone,
+      //   email: values.email,
+      // };
+
+      // goToNextStep(values, targetAmount);
+
+      const postData = {
+        sourceId: sourceSystem.id,
+        targetId: targetSystem.id,
+        sourceAmount: values.sourceAmount,
+        targetAmount: targetAmount,
+        wallet: values.sourceWalletAddress || values.targetWalletAddress, // assuming wallet address is one of these
+        email: values.email,
+      };
+    
+      try {
+        const response = await axios.post('https://ragingviper.store/api/order', postData);
+        console.log('API Response:', response.data);
+        goToNextStep(values, targetAmount);
+      } catch (error) {
+        console.error("Error submitting order:", error);
+        // Handle the error appropriately
+      }
 
       setSubmitting(false);
     }
@@ -142,10 +195,32 @@ export function TransactionSetup(props: TransactionSetupProps) {
     }
   };
 
-  const sourceMin = parseInt(sourceSystem.min, 10);
-  const sourceMax = parseInt(sourceSystem.max, 10);
-  const targetMin = parseInt(targetSystem.min, 10);
-  const targetMax = parseInt(targetSystem.max, 10);
+  const handleTargetAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    if (/^[0-9.]*$/.test(newValue)) {
+      formik.setFieldValue('targetAmount', newValue);
+  
+      let newSourceAmount = '0';
+      if (newValue !== '') {
+        newSourceAmount = reverseCalcul(newValue, sourceSystem, targetSystem);
+      }
+  
+      formik.setFieldValue('sourceAmount', newSourceAmount);
+    }
+  };
+
+  useEffect(() => {
+    formik.resetForm();
+  }, [sourceSystem, targetSystem, formik.setFieldValue]);
+  
+
+  const sourceMin = parseFloat(sourceSystem.min);
+  const sourceMax = parseFloat(sourceSystem.max);
+  const targetMin = parseFloat(targetSystem.min);
+  const targetMax = parseFloat(targetSystem.max);
+
+  const sourceAmountValue = parseFloat(formik.values.sourceAmount);
+  const isSourceAmountInvalid = isNaN(sourceAmountValue) || sourceAmountValue < sourceMin || sourceAmountValue > sourceMax;
 
   return (
     <form
@@ -183,7 +258,7 @@ export function TransactionSetup(props: TransactionSetupProps) {
 
           <div className={styles['e-transaction-setup__calculator-line']}>
             <CalculatorFormField
-              invalid={Boolean(formik.errors.sourceAmount)}
+              invalid={Boolean(formik.errors.sourceAmount || isSourceAmountInvalid)}
               errorMessage={formik.errors.sourceAmount}
               inputProps={{
                 name: 'sourceAmount',
@@ -262,10 +337,7 @@ export function TransactionSetup(props: TransactionSetupProps) {
                 name: 'targetAmount',
                 suffix: targetSystem.symbol,
                 value: formik.values.targetAmount,
-                onChange: (value) => {
-                  console.log('value', value);
-                  // formik.handleChange()
-                },
+                onChange: handleTargetAmountChange,
                 onBlur: formik.handleBlur,
                 onFocus: () => {}
               }}
@@ -287,7 +359,7 @@ export function TransactionSetup(props: TransactionSetupProps) {
             />
           </div>
 
-          {sourceSystem.type === 'crypto' ? (
+          {targetSystem.type === 'crypto' ? (
             <div className={styles['e-transaction-setup__calculator-line']}>
               <CalculatorFormField
                 invalid={Boolean(formik.errors.targetWalletAddress)}

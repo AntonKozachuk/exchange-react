@@ -4,11 +4,12 @@ const PERCENTS_100 = 100;
 
 type ReturnValue = [number, number, (value: boolean) => void];
 
-export function useExchangeRefreshTimer(duration: number, enabled: boolean = false): ReturnValue {
+export function useExchangeRefreshTimer(duration: number, enabled: boolean = false, resetKey: number): ReturnValue {
   const [progress, setProgress] = useState<number>(0);
   const [isEnabled, setIsEnabled] = useState<boolean>(enabled);
 
   useEffect(() => {
+    setProgress(0);
     const step: number = PERCENTS_100 / duration;
 
     let timer: NodeJS.Timer;
@@ -30,7 +31,7 @@ export function useExchangeRefreshTimer(duration: number, enabled: boolean = fal
         clearTimeout(timer);
       }
     };
-  }, [duration, isEnabled])
+  }, [duration, isEnabled, resetKey])
 
   const timeLeft: number = +((PERCENTS_100 - progress) * duration / PERCENTS_100).toFixed(0);
 

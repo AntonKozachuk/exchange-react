@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { IndexPage } from './pages/index/IndexPage';
 
 import { initApp } from './initApp';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<IndexPage />} />
+        <Route path="/:lang/" element={<IndexPage />} />
       </Routes>
     </Router>
   );
